@@ -1,6 +1,6 @@
 # portafolio_cv
 
-Flutter v3.3.9
+Flutter v3.19.6
 
 ## Build
 
