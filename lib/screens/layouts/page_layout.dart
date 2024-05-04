@@ -1,10 +1,9 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:easy_localization/easy_localization.dart';
 
+import '../../config.dart';
 import '../../includes/theme.dart';
 import '../../includes/utils/utils.dart';
 import '../../includes/widgets/widgets.dart';
@@ -32,9 +31,21 @@ class PageLayoutState extends State<PageLayout> {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Palette.background_light,
         title: PersonTitle(),
       ),
-      body: widget.child,
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0, bottom: 0, left: 0, right: 0, 
+            child: widget.child
+          ),
+          Positioned(
+            bottom: 10, right: 10, 
+            child: Image.asset(MEDIA.icoBlackCat,height: responsive.hp(10),),
+          )
+        ],
+      ),
     );
   }
 }
@@ -48,27 +59,20 @@ class PersonTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final responsive = Responsive(context);
     const double size = 10.0;
-    const double subsize = 8.0;
     return Container(
       height: size*2,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          CircleAvatar(
-            radius: responsive.sp(size),
-            backgroundColor: Palette.third,
-          ),
           SizedBox(
             width: responsive.sp(size),
           ),
           Row(
           crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              appBarTitlte('person.name', size*2),
-              SizedBox(
-                width: responsive.sp(size),
-              ),
-              appBarSubtitle('person.occupation', subsize*2),
+              appBarTitlte('person.name'),
+              SizedBox( width: responsive.sp(size), ),
+              appBarSubtitle('person.occupation'),
             ],
           )
         ],

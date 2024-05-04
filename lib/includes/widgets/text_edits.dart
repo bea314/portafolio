@@ -5,37 +5,93 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utils/utils.dart';
+import '../../config.dart';
 import '../../includes/theme.dart';
 
-Widget titulo01(BuildContext context, String title) {
-    return Text(title, textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline1,);
+Widget appBarTitlte(String title) {
+  return FittedBox(
+    fit: BoxFit.contain,
+    child: Text(title,
+        textAlign: TextAlign.left,
+        style: GoogleFonts.merriweatherSans(
+          textStyle: TextStyle(
+            color: Palette.black,
+            fontSize: SIZES.title,
+            fontWeight: FontWeight.bold,
+          ),
+        )).tr(),
+  );
 }
 
-Widget titulo02(BuildContext context, String title) {
-    return Text(title, textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline2,);
+Widget appBarSubtitle(String title) {
+  return FittedBox(
+    fit: BoxFit.contain,
+    child: Text(title,
+        textAlign: TextAlign.left,
+        style: GoogleFonts.merriweatherSans(
+          textStyle: TextStyle(
+            color: Palette.black,
+            fontSize: SIZES.text,
+            fontWeight: FontWeight.w300,
+          ),
+        )).tr(),
+  );
 }
 
-Widget appBarTitlte(String title, double size) {
-    return FittedBox( fit: BoxFit.contain,
-      child: Text(title, textAlign: TextAlign.left, style: GoogleFonts.workSans(
+Widget titleTextNormal(String text, {
+  TextAlign textAlign = TextAlign.center,
+  Color textColor = Palette.black
+}) {
+  return flexy4Text(
+    Text(text,
+      textAlign: textAlign,
+      style: GoogleFonts.merriweatherSans( 
         textStyle: TextStyle(
-          color: Palette.black,
-          fontSize: size,
-          fontWeight: FontWeight.bold,
+          color: textColor,
+          fontSize: SIZES.title,
+          fontWeight: FontWeight.w700,
         ),
       )).tr(),
-    );
+  );
 }
 
-Widget appBarSubtitle(String title, double size) {
-    return FittedBox( fit: BoxFit.contain,
-      child: Text(title, textAlign: TextAlign.left, style: GoogleFonts.workSans(
+Widget subtitleTextNormal(String text, {
+  TextAlign textAlign = TextAlign.center,
+  Color textColor = Palette.second
+}) {
+  return flexy4Text(
+    Text(text,
+      textAlign: textAlign,
+      style: GoogleFonts.juliusSansOne( 
         textStyle: TextStyle(
-          color: Palette.black,
-          fontSize: size,
-          fontWeight: FontWeight.w300,
+          color: textColor,
+          fontSize: SIZES.subtitle,
+          fontWeight: FontWeight.w500,
         ),
       )).tr(),
-    );
+  );
+}
+
+Widget bodyTextNormal(String text, {
+  TextAlign textAlign = TextAlign.center,
+  Color textColor = Palette.black
+}) {
+  return flexy4Text(
+    Text(text,
+      textAlign: textAlign,
+      style: GoogleFonts.workSans(
+        textStyle: TextStyle(
+          color: textColor,
+          fontSize: SIZES.text,
+          fontWeight: FontWeight.w400,
+        ),
+      )).tr(),
+  );
+}
+
+Widget flexy4Text(Widget child, {Axis direction = Axis.horizontal}) {
+  return Flex(
+    direction: direction,
+    children: [Expanded(flex: 1, child: child)],
+  );
 }

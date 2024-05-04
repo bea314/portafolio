@@ -1,6 +1,7 @@
 {
     "person": {
         "name": "Beatriz Del Pinal",
-        "occupation": "Software Developer"
+        "occupation": "R&D / Software Developer",
+        "description": "Ingeniera con amplia experiencia en diversas áreas, con un enfoque especial en investigación y desarrollo, así como en el aprendizaje continuo. Destaca por su sólido conocimiento en el desarrollo de software, con incursiones significativas en el sector fintech y en el desarrollo de software financiero. Su trayectoria también incluye experiencia relevante en el campo de la robótica y las aplicaciones descentralizadas (DApps) basadas en la blockchain Ethereum. Además, se destaca por su compromiso con la promoción de la diversidad y la inclusión, habiendo impartido capacitaciones para Girls in STEM como fundadora del proyecto llamado WIR (Women In Robotics) con el apoyo del capítulo técnico RAS UDB IEEE. Su dedicación a la innovación y su capacidad para enfrentar desafíos complejos de manera efectiva la distinguen como una profesional destacada en su campo."
     }
 }
